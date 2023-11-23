@@ -100,8 +100,15 @@ namespace HireIN.Controllers
             }
         }
 
+        public ActionResult DetailsOfVacancy(int vid)
+        {
+            Vacancy v = db.Vacancies.Find(vid);
+            return View(v);
+        }
+
         public ActionResult CandidateApplied(int vid)
         {
+            //have to clear from database values applicant Id is repeating 
             try
             {
                 Applicant a = new Applicant();
@@ -110,7 +117,6 @@ namespace HireIN.Controllers
                 a.CandidateId = (int)Session["cid"];
                 a.VacancyId = vid;
                 a.Status = "Applied";
-
                 db.Applicants.Add(a);
                 db.SaveChanges();
             }
@@ -125,7 +131,11 @@ namespace HireIN.Controllers
         {
             List<Applicant> a = new List<Applicant>();
             a = db.Applicants.ToList();
-            return View(a);
+            int candidateId = (int)Session["cid"];
+            var q = from applicant in a
+                    where applicant.CandidateId == candidateId
+                    select applicant;
+            return View(q);
         }
     }
 }

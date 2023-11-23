@@ -1,6 +1,7 @@
 ﻿using HireIN.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -81,21 +82,20 @@ namespace HireIN.Controllers
         public ActionResult showVacancy()
         {
             try
-            {                
+            {
+                int agentId = (int)Session["aid"];
                 vacancies = db.Vacancies.ToList();
-                if(vacancies.Count > 0)
-                {
-                    return View(vacancies);
-                }
-                else
-                {
-                    TempData["err"] = "No vacancies created!!!";
-                }
+
+                var q = from vac in vacancies
+                        where vac.AgencyId== agentId
+                        select vac;
+
+                return View(q);
+               
             }catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-            return View(vacancies);
         }
 
         public ActionResult Logout()
@@ -117,7 +117,8 @@ namespace HireIN.Controllers
             {
                 v.VacancyId = id;
                 id++;
-                //v.AgencyId = Convert.ToInt32(Session["aid"]);
+                int agentId = (int)Session["aid"];
+                v.AgencyId = agentId;
                 db.Vacancies.Add(v);
                 db.SaveChanges();
                 return RedirectToAction("showVacancy");
@@ -134,6 +135,20 @@ namespace HireIN.Controllers
             {
                 List<Applicant> appList = new List<Applicant>();
                 appList = db.Applicants.ToList();
+
+                //int agentId = (int)Session["aid"];
+                //vacancies = db.Vacancies.ToList();
+                //var vacList = from vac in vacancies
+                //        where vac.AgencyId == agentId
+                //        select vac;
+                //var q = appList.Join(vacList,
+                //                        a => a.VacancyId,
+                //                        v => v.VacancyId,
+                //                        (a, v) =>
+                //                            {
+                //                                a.VacancyId = a.VacancyId
+                //                            }
+                //                     );
                 return View(appList);
             }
             catch(Exception ex)
@@ -145,7 +160,7 @@ namespace HireIN.Controllers
         public ActionResult AcceptedCandidates(int id)
         {
             Applicant a = new Applicant();
-            a = db.Applicants.FirstOrDefault();
+            a = db.Applicants.Find(id);
             a.Status = "Selected";
             db.SaveChanges();
             return View();
@@ -154,10 +169,33 @@ namespace HireIN.Controllers
         public ActionResult RejectedCandidates(int id)
         {
             Applicant a = new Applicant();
-            a = db.Applicants.FirstOrDefault();
+            a = db.Applicants.Find(id);
             a.Status = "Rejected";
             db.SaveChanges();
             return View();
         }
+
+        [HttpGet]
+        public ActionResult EditVacancy(int id)
+        {
+            Vacancy vac = db.Vacancies.Find(id);
+            return View(vac);
+        }
+
+        [HttpPost]
+        public ActionResult EditVacancy(Vacancy v)
+        {
+            db.Vacancies.AddOrUpdate(v);
+            db.SaveChanges();
+            return RedirectToAction("showVacancy");
+        }
+
+        public ActionResult DeleteVacancy(int id)
+        {
+            Vacancy v = db.Vacancies.Find(id);
+            db.Vacancies.Remove(v);
+            return View("showVacancy");
+        }
     }
+
 }
