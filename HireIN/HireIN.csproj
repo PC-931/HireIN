@@ -288,6 +288,12 @@
     <Content Include="Views\Candidate\Login.cshtml" />
     <Content Include="Views\Candidate\Register.cshtml" />
     <Content Include="Views\Candidate\Dashboard.cshtml" />
+    <Content Include="Views\Candidate\showVacancyToCandidate.cshtml" />
+    <Content Include="Views\Candidate\CandidateApplied.cshtml" />
+    <Content Include="Views\Agency\ApplicantsApplied.cshtml" />
+    <Content Include="Views\Agency\AcceptedCandidates.cshtml" />
+    <Content Include="Views\Agency\RejectedCandidates.cshtml" />
+    <Content Include="Views\Candidate\AppliedApplicantStatus.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -127,5 +127,37 @@ namespace HireIN.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        public ActionResult ApplicantsApplied()
+        {
+            try
+            {
+                List<Applicant> appList = new List<Applicant>();
+                appList = db.Applicants.ToList();
+                return View(appList);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception (ex.Message);
+            }
+        }
+
+        public ActionResult AcceptedCandidates(int id)
+        {
+            Applicant a = new Applicant();
+            a = db.Applicants.FirstOrDefault();
+            a.Status = "Selected";
+            db.SaveChanges();
+            return View();
+        }
+
+        public ActionResult RejectedCandidates(int id)
+        {
+            Applicant a = new Applicant();
+            a = db.Applicants.FirstOrDefault();
+            a.Status = "Rejected";
+            db.SaveChanges();
+            return View();
+        }
     }
 }
