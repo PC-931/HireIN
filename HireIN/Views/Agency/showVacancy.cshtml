@@ -1,0 +1,57 @@
+﻿@model IEnumerable<HireIN.Models.Vacancy>
+
+@{
+    ViewBag.Title = "showVacancy";
+}
+
+<h2>showVacancy</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateVacancy")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AgencyId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgencyId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VacancyId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VacancyId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VacancyId })
+        </td>
+    </tr>
+}
+
+</table>

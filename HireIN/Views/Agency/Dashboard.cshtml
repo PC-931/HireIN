@@ -1,0 +1,12 @@
+﻿@model HireIN.Models.Agency
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+<p>
+    @Html.ActionLink("Vacancies", "showVacancy") |
+    @*@Html.ActionLink("Update Details", "EditAgency", new { id = Model.AgencyId }) |*@
+    @Html.ActionLink("LogOut", "Logout")
+</p>
