@@ -19,6 +19,7 @@ namespace HireIN.Controllers
             vacancies = new List<Vacancy>();
             db = new MVC_AssessmentEntities1();
         }
+
         [HttpGet]
         public ActionResult Login()
         {
