@@ -197,6 +197,19 @@ namespace HireIN.Controllers
             db.Vacancies.Remove(v);
             return View("showVacancy");
         }
+
+        public ActionResult ShowCandidateDetails(int id)
+        {
+            Candidate rec = new Candidate();
+            try
+            {
+                rec = db.Candidates.Find(id);
+                return View(rec);
+            }
+            catch(Exception ex){
+                throw new Exception(ex.Message);
+            }
+        }
     }
 
 }

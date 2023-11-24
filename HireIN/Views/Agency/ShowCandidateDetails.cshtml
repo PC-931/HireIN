@@ -1,0 +1,57 @@
+﻿@model HireIN.Models.Candidate
+
+@{
+    ViewBag.Title = "ShowCandidateDetails";
+}
+
+<h2>Applied Candidate Details</h2>
+
+<div>
+    <h4>Candidate</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidateName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidateEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidateEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidateExperience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidateExperience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidateRole)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidateRole)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CandidateSkills)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CandidateSkills)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "ApplicantsApplied")
+</p>
