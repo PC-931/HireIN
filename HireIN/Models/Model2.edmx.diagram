@@ -7,8 +7,8 @@
       <Diagram DiagramId="833c898ded314d7da1d11ed96fbf813a" Name="Diagram1">
         <EntityTypeShape EntityType="MVC_AssessmentModel.Agency" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MVC_AssessmentModel.Applicant" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MVC_AssessmentModel.Candidate" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MVC_AssessmentModel.Vacancy" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVC_AssessmentModel.Candidate" Width="1.5" PointX="7" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVC_AssessmentModel.Vacancy" Width="1.5" PointX="4.875" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

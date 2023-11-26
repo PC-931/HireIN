@@ -2,12 +2,20 @@
 @{
     ViewBag.Title = "CandidateApplied";
 }
+<div class="container mt-5">
+    <h2>Applied</h2>
 
-<h2>Applied</h2>
+    <div class="alert alert-success" role="alert">
+        <p>You have successfully applied for the job.</p>
+    </div>
 
-<p>You have applied for the job</p>
+    <p>
+        @Html.ActionLink("Back to Vacancy List", "showVacancyToCandidate", null, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Back to Dashboard", "Dashboard", null, new { @class = "btn btn-secondary" })
+    </p>
+</div>
 
-<p>
-    @Html.ActionLink("Back to Vacancy List", "showVacancyToCandidate") |
-    @Html.ActionLink("Back to Dashboard", "Dashboard")
-</p>
+<!-- Bootstrap Scripts (jQuery, Popper.js, Bootstrap JS) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+@*<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-c5NPnbz7Xhn4Nl4atJMkEM7p2I5REqF9L7I9ujBsrLqq4q9pibqU7IvgADJdEnXE" crossorigin="anonymous"></script>*@
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy8SkiDxPSS8UZ9gIhvdE+XVqyJK6m7d" crossorigin="anonymous"></script>

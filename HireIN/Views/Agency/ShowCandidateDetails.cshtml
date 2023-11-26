@@ -3,55 +3,58 @@
 @{
     ViewBag.Title = "ShowCandidateDetails";
 }
+<div class="container mt-5">
+    <h2>Applied Candidate Details</h2>
 
-<h2>Applied Candidate Details</h2>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Candidate</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.CandidateName)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.CandidateName)
+                </dd>
 
-<div>
-    <h4>Candidate</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CandidateName)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.CandidateEmail)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.CandidateEmail)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CandidateName)
-        </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.CandidateExperience)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.CandidateExperience)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CandidateEmail)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.CandidateRole)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.CandidateRole)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CandidateEmail)
-        </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.CandidateSkills)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.CandidateSkills)
+                </dd>
+            </dl>
+        </div>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CandidateExperience)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CandidateExperience)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CandidateRole)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CandidateRole)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CandidateSkills)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CandidateSkills)
-        </dd>
-
-    </dl>
+    <p class="mt-3">
+        @Html.ActionLink("Back to List", "ApplicantsApplied", null, new { @class = "btn btn-secondary" })
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Back to List", "ApplicantsApplied")
-</p>
+
+<!-- Bootstrap Scripts (jQuery, Popper.js, Bootstrap JS) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+@*<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-c5NPnbz7Xhn4Nl4atJMkEM7p2I5REqF9L7I9ujBsrLqq4q9pibqU7IvgADJdEnXE" crossorigin="anonymous"></script>*@
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy8SkiDxPSS8UZ9gIhvdE+XVqyJK6m7d" crossorigin="anonymous"></script>

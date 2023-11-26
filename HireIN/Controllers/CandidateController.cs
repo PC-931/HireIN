@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace HireIN.Controllers
@@ -10,14 +9,14 @@ namespace HireIN.Controllers
     public class CandidateController : Controller
     {
         public static int id = 1500;
-        public MVC_AssessmentEntities1 db;
+        public EmployeeEntities db;
         List<Candidate> candidates;
         List<Vacancy> vacList;
 
         public CandidateController()
         {
             candidates = new List<Candidate>();
-            db = new MVC_AssessmentEntities1();
+            db = new EmployeeEntities();
             vacList = new List<Vacancy>();
         }
 

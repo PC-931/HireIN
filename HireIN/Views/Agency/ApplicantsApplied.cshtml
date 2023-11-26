@@ -3,42 +3,43 @@
 @{
     ViewBag.Title = "ApplicantsApplied";
 }
+<div class="container mt-5">
+    <h2>Applicants Applied</h2>
 
-<h2>ApplicantsApplied</h2>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.CandidateId)</th>
+                <th>@Html.DisplayNameFor(model => model.VacancyId)</th>
+                <th>@Html.DisplayNameFor(model => model.Status)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.CandidateId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.VacancyId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Actions">
+                            @Html.ActionLink("Show Candidate Details", "ShowCandidateDetails", new { id = item.CandidateId }, new { @class = "btn btn-info btn-sm" })
+                            @Html.ActionLink("Accepted", "AcceptedCandidates", new { id = item.ApplicantId }, new { @class = "btn btn-success btn-sm" })
+                            @Html.ActionLink("Rejected", "RejectedCandidates", new { id = item.ApplicantId }, new { @class = "btn btn-danger btn-sm" })
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CandidateId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VacancyId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CandidateId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VacancyId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.ActionLink("Show Candidate Details", "ShowCandidateDetails", new { id=item.CandidateId }) |
-            @Html.ActionLink("Accepted", "AcceptedCandidates", new { id=item.ApplicantId }) |
-            @Html.ActionLink("Rejected", "RejectedCandidates", new { id=item.ApplicantId })
-        </td>
-    </tr>
-}
     <p>
-        @Html.ActionLink("Go to Dashboard" , "dashboard")
+        @Html.ActionLink("Go to Dashboard", "dashboard", null, new { @class = "btn btn-primary" })
     </p>
-</table>
+</div>
+
+<!-- Bootstrap Scripts (jQuery, Popper.js, Bootstrap JS) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+@*<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-c5NPnbz7Xhn4Nl4atJMkEM7p2I5REqF9L7I9ujBsrLqq4q9pibqU7IvgADJdEnXE" crossorigin="anonymous"></script>*@
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy8SkiDxPSS8UZ9gIhvdE+XVqyJK6m7d" crossorigin="anonymous"></script>

@@ -4,54 +4,35 @@
     ViewBag.Title = "DetailsOfVacancy";
 }
 
-<h2>Detailed Description Vacancy</h2>
+<div class="container mt-5">
+    <h2>Detailed Description of Vacancy</h2>
 
-<div>
-    <h4>Vacancy</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.AgencyId)
-        </dt>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">@Html.DisplayFor(model => model.JobTitle)</h4>
 
-        <dd>
-            @Html.DisplayFor(model => model.AgencyId)
-        </dd>
+            <dl class="row">
+                <dt class="col-sm-3">Agency ID:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.AgencyId)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.JobTitle)
-        </dt>
+                <dt class="col-sm-3">Job Description:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.JobDescription)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.JobTitle)
-        </dd>
+                <dt class="col-sm-3">Job Location:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.JobLocation)</dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.JobDescription)
-        </dt>
+                <dt class="col-sm-3">Salary:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Salary)</dd>
+            </dl>
+        </div>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.JobDescription)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.JobLocation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.JobLocation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Salary)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Salary)
-        </dd>
-
-    </dl>
+    <p>
+        @Html.ActionLink("Back to Dashboard", "Dashboard", null, new { @class = "btn btn-secondary" })
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Back to Dashboard", "Dashboard")
-</p>
+
+<!-- Bootstrap Scripts (jQuery, Popper.js, Bootstrap JS) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+@*<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-c5NPnbz7Xhn4Nl4atJMkEM7p2I5REqF9L7I9ujBsrLqq4q9pibqU7IvgADJdEnXE" crossorigin="anonymous"></script>*@
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy8SkiDxPSS8UZ9gIhvdE+XVqyJK6m7d" crossorigin="anonymous"></script>

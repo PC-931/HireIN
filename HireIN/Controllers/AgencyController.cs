@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace HireIN.Controllers
@@ -11,13 +10,13 @@ namespace HireIN.Controllers
     public class AgencyController : Controller
     {
         public static int id = 1000;
-        public MVC_AssessmentEntities1 db;
+        public EmployeeEntities db;
         public List<Vacancy> vacancies;
 
         public AgencyController()
         {
             vacancies = new List<Vacancy>();
-            db = new MVC_AssessmentEntities1();
+            db = new EmployeeEntities();
         }
 
         [HttpGet]

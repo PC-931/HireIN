@@ -3,16 +3,24 @@
     ViewBag.Title = "Dashboard";
 }
 
-<h2>Dashboard</h2>
-<p>
-    @Html.ActionLink("LogOut", "Logout")  
-</p>
+<div class="container mt-5">
+    <h2>Dashboard</h2>
 
-<ul>
-    <li>
-        @Html.ActionLink("Show Vacancies", "showVacancyToCandidate")    
-    </li>
-    <li>
-        @Html.ActionLink("Applied Status", "AppliedApplicantStatus")
-    </li>
-</ul>
+    <p>
+        @Html.ActionLink("Log Out", "Logout", null, new { @class = "btn btn-danger" })
+    </p>
+
+    <ul class="list-inline">
+        <li class="list-inline-item">
+            @Html.ActionLink("Show Vacancies", "showVacancyToCandidate", null, new { @class = "btn btn-primary" })
+        </li>
+        <li class="list-inline-item">
+            @Html.ActionLink("Applied Status", "AppliedApplicantStatus", null, new { @class = "btn btn-info" })
+        </li>
+    </ul>
+</div>
+
+<!-- Bootstrap Scripts (jQuery, Popper.js, Bootstrap JS) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+@*<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-c5NPnbz7Xhn4Nl4atJMkEM7p2I5REqF9L7I9ujBsrLqq4q9pibqU7IvgADJdEnXE" crossorigin="anonymous"></script>*@
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy8SkiDxPSS8UZ9gIhvdE+XVqyJK6m7d" crossorigin="anonymous"></script>
