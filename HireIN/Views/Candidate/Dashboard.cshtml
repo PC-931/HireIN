@@ -3,7 +3,7 @@
     ViewBag.Title = "Dashboard";
 }
 
-<div class="container mt-5">
+@*<div class="container mt-5">
     <h2>Dashboard</h2>
 
     <p>
@@ -18,7 +18,49 @@
             @Html.ActionLink("Applied Status", "AppliedApplicantStatus", null, new { @class = "btn btn-info" })
         </li>
     </ul>
+</div>*@
+
+
+
+<div class="container mt-4">
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Welcome to Dashboard!</h1>
+        <p class="lead">View your vacancies and applicant status easily.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Vacancies</h5>
+                    <p class="card-text">View job vacancies here.</p>
+                    @Html.ActionLink("Show Vacancies", "showVacancyToCandidate", null, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Applicantion Status</h5>
+                    <p class="card-text">Check out status of your application.</p>
+                    @Html.ActionLink("Applied Status", "AppliedApplicantStatus", null, new { @class = "btn btn-info" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Log Out</h5>
+                    <p class="card-text">Logout from your dashboard.</p>
+                    @Html.ActionLink("Log Out", "Logout", null, new { @class = "btn btn-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 
 <!-- Bootstrap Scripts (jQuery, Popper.js, Bootstrap JS) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
