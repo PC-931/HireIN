@@ -12,6 +12,7 @@
                 <th>@Html.DisplayNameFor(model => model.CandidateId)</th>
                 <th>@Html.DisplayNameFor(model => model.VacancyId)</th>
                 <th>@Html.DisplayNameFor(model => model.Status)</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -21,6 +22,11 @@
                     <td>@Html.DisplayFor(modelItem => item.CandidateId)</td>
                     <td>@Html.DisplayFor(modelItem => item.VacancyId)</td>
                     <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            @Html.ActionLink("Show Vacancy", "ViewVacancyById", new { id = item.VacancyId }, new { @class = "btn btn-primary" })
+                        </div>
+                    </td>
                 </tr>
             }
         </tbody>

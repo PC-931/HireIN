@@ -19,10 +19,10 @@
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.AgencyId, htmlAttributes: new { @class = "control-label col-md-4" })
+                          @*  @Html.LabelFor(model => model.AgencyId, htmlAttributes: new { @class = "control-label col-md-4" })*@
                             <div class="col-md-8">
-                                @Html.EditorFor(model => model.AgencyId, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.AgencyId, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.AgencyId, new { htmlAttributes = new { @class = "form-control" } })
+                                @*@Html.ValidationMessageFor(model => model.AgencyId, "", new { @class = "text-danger" })*@
                             </div>
                         </div>
 
@@ -47,6 +47,12 @@
                             <div class="col-md-8">
                                 @Html.EditorFor(model => model.AgencyPass, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.AgencyPass, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8 text-bg-danger">
+                                @TempData["err"]
                             </div>
                         </div>
 

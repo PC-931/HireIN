@@ -40,7 +40,7 @@ namespace HireIN.Controllers
                 }
                 else
                 {
-                    TempData["err"] = "UserNotFound";
+                    TempData["err"] = "Please enter valid Username and Password!!!";
                 }
             }
             catch(Exception ex)
@@ -61,16 +61,25 @@ namespace HireIN.Controllers
         {
             try
             {
-                usr.AgencyId = id;
-                id++;
-                db.Agencies.Add(usr);
-                db.SaveChanges();
-                return RedirectToAction("Login");
+                if( usr.AgencyEmail!=null || usr.AgencyPass!=null )
+                {
+                    usr.AgencyId = id;
+                    id++;
+                    db.Agencies.Add(usr);
+                    db.SaveChanges();
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    TempData["err"] = "Please fill the form completely!!!";
+                    return View();
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                TempData["err"] = ex.Message;
             }
+            return View();
         }
 
         public ActionResult Dashboard(Agency data)
@@ -115,13 +124,22 @@ namespace HireIN.Controllers
         {
             try
             {
-                v.VacancyId = id;
-                id++;
-                int agentId = (int)Session["aid"];
-                v.AgencyId = agentId;
-                db.Vacancies.Add(v);
-                db.SaveChanges();
-                return RedirectToAction("showVacancy");
+                if ( v.JobTitle!=null || v.JobLocation!=null || v.JobDescription!=null || v.Salary>0  )
+                {
+                    v.VacancyId = id;
+                    id++;
+                    int agentId = (int)Session["aid"];
+                    v.AgencyId = agentId;
+                    db.Vacancies.Add(v);
+                    db.SaveChanges();
+                    return RedirectToAction("showVacancy");
+                }
+                else
+                {
+                    TempData["err"] = "All fields are required!!";
+                    return View();
+                }
+
             }
             catch (Exception ex)
             {
@@ -206,6 +224,20 @@ namespace HireIN.Controllers
                 return View(rec);
             }
             catch(Exception ex){
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+        public ActionResult ShowVacancyDetails(int id)
+        {
+            try
+            {
+                Vacancy rec = db.Vacancies.Find(id);
+                return View(rec);
+            }
+            catch (Exception ex)
+            {
                 throw new Exception(ex.Message);
             }
         }

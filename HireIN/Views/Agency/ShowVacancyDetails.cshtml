@@ -1,0 +1,28 @@
+﻿@model HireIN.Models.Vacancy
+
+@{
+    ViewBag.Title = "ShowVacancyDetails";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">Vacancy Details</h2>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3">Job Title:</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.JobTitle)</dd>
+
+        <dt class="col-sm-3">Job Description:</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.JobDescription)</dd>
+
+        <dt class="col-sm-3">Job Location:</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.JobLocation)</dd>
+
+        <dt class="col-sm-3">Salary:</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Salary)</dd>
+    </dl>
+
+    <div class="text-center">
+        @Html.ActionLink("Go back to list", "ApplicantsApplied", new { @class = "btn btn-primary" })
+    </div>
+</div>

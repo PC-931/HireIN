@@ -12,12 +12,14 @@ namespace HireIN.Controllers
         public EmployeeEntities db;
         List<Candidate> candidates;
         List<Vacancy> vacList;
+        Vacancy rec;
 
         public CandidateController()
         {
             candidates = new List<Candidate>();
             db = new EmployeeEntities();
             vacList = new List<Vacancy>();
+            rec = new Vacancy();
         }
 
 
@@ -42,7 +44,7 @@ namespace HireIN.Controllers
                 }
                 else
                 {
-                    TempData["err"] = "UserNotFound";
+                    TempData["err"] = "User Not Found";
                 }
             }
             catch (Exception ex)
@@ -135,6 +137,12 @@ namespace HireIN.Controllers
                     where applicant.CandidateId == candidateId
                     select applicant;
             return View(q);
+        }
+
+        public ActionResult ViewVacancyById(int id)
+        {
+            rec = db.Vacancies.Find(id);
+            return View(rec);
         }
     }
 }

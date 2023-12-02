@@ -387,6 +387,8 @@
     <Content Include="Views\Agency\EditVacancy.cshtml" />
     <Content Include="Views\Candidate\DetailsOfVacancy.cshtml" />
     <Content Include="Views\Agency\ShowCandidateDetails.cshtml" />
+    <Content Include="Views\Agency\ShowVacancyDetails.cshtml" />
+    <Content Include="Views\Candidate\ViewVacancyById.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
